@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 
 const Careers: React.FC = () => {
   useEffect(() => {
@@ -34,15 +34,16 @@ const Careers: React.FC = () => {
 
   return (
     <section className="py-20 bg-gray-100">
+     {/* <section className= "py-20 bg-grey-100 min-h-screen"> */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-poppins font-bold text-tms-blue">Join Our Team</h2>
           <p className="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">We're looking for passionate innovators to help us engineer the future. Explore our open positions and find your next opportunity at TMS.</p>
         </div>
-        <div id="example-widget-container" className="max-w-4xl mx-auto"></div>
+        <div id="example-widget-container" className="max-w-4xl mx-auto"></div> 
       </div>
+      
     </section>
   );
 };
-
 export default Careers;
