@@ -3,6 +3,8 @@ import React from 'react';
 import { SectionId } from '../types';
 import { LinkedInIcon, TwitterIcon } from './icons/IconComponents';
 import TmsLogo from './Logo';
+import { Link } from "react-router-dom";
+
 
 interface FooterProps {
   onScrollTo: (id: SectionId) => void;
@@ -17,8 +19,9 @@ const Footer: React.FC<FooterProps> = ({ onScrollTo }) => {
   ];
 
   const legalLinks = [
-    { title: 'Privacy Policy', href: '#' },
-    { title: 'Terms of Use', href: '#' }
+  { title: "Privacy Policy", path: "/privacy-policy" },
+  { title: "Terms of Use", path: "/terms-of-use" }
+
   ];
 
   const handleNavClick = (id: SectionId) => {
@@ -52,10 +55,16 @@ const Footer: React.FC<FooterProps> = ({ onScrollTo }) => {
             <h4 className="font-bold text-lg mb-4">Legal</h4>
             <ul className="space-y-2">
               {legalLinks.map(link => (
-                <li key={link.title}>
-                  <a href={link.href} className="text-gray-400 hover:text-tms-cyan transition-colors">{link.title}</a>
-                </li>
-              ))}
+  <li key={link.path}>
+    <Link
+      to={link.path}
+      className="text-gray-400 hover:text-tms-cyan transition-colors"
+    >
+      {link.title}
+    </Link>
+  </li>
+))}
+
             </ul>
           </div>
         </div>
