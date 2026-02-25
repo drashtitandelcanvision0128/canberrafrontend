@@ -22,6 +22,9 @@ FROM nginx:alpine AS production
 # Copy built assets from builder stage
 COPY --from=builder /app/dist /usr/share/nginx/html
 
+# Verify the build was successful
+RUN ls -la /usr/share/nginx/html || echo "Build directory empty!"
+
 # Copy nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
